@@ -1,0 +1,33 @@
+.createPost{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    /* align-items: center; */
+}
+
+.createPost input, textarea{
+    outline: 0;
+    border-radius: 10px;
+}
+
+.createPost textarea{
+    width: 400px;
+    height: 200px;
+}
+.createPost__title{
+    display: flex;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+.createPost__title > h2{
+    margin-right: 80px;
+}
+
+.createPost__description{
+    display: flex;
+    margin-bottom: 10px;
+    
+}
+.createPost__description > h2{
+    margin-right: 10px;
+}

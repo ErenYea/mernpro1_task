@@ -1,0 +1,32 @@
+.post{
+   display: flex;
+   margin-bottom:10px;
+   /* flex-direction: column; */
+
+}
+.post img{
+    width: 200px;
+    height: 200px;
+    margin-right: 10px;
+    border-radius: 10px;
+}
+.post__body > h2{
+    text-transform: capitalize;
+    text-decoration: underline;
+    font-weight: 590;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.post__body > p{
+    font-weight: 100;
+
+}
+
+.post__body > .author {
+    font-weight:400;
+    font-family: Helvetica;
+    /* border: 1px solid ; */
+    margin-top: 10px;
+    text-align: right;
+}
