@@ -1,17 +1,20 @@
-import { Button } from "@mui/material";
+import { Button, CircularProgress } from "@mui/material";
 import React, { useState } from "react";
 import "./CreatePost.css";
 import axios from "./axios";
 import { useStateValue } from "./StateProvider";
 import { Navigate } from "react-router-dom";
+import { Box } from "@mui/system";
 
 const CreatePost = () => {
   const [state, dispatch] = useStateValue();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [file, setFile] = useState("");
+  const [create, setCreate] = useState(false);
   const createpost = () => {
     console.log(file);
+    setCreate(true);
     if (!file[0].type.includes("image")) {
       alert("Please insert the image file");
       setFile("");
@@ -36,12 +39,15 @@ const CreatePost = () => {
     // // },
     axios
       .post("/createpost", formData)
-      .then((response) => console.log(response))
+      .then((response) => {
+        setDescription("");
+        setFile("");
+        setTitle("");
+        setCreate(false);
+        console.log(response);
+      })
       .catch((error) => console.log(error));
     console.log(formData);
-    setDescription("");
-    setFile("");
-    setTitle("");
   };
   if (state.user == null) {
     return <Navigate to="/signup" />;
@@ -89,8 +95,16 @@ const CreatePost = () => {
           )}
         </div>
       </div>
-
-      <Button onClick={createpost}>Create Post</Button>
+      {create ? (
+        <Box sx={{ display: "flex" }}>
+          <CircularProgress />
+        </Box>
+      ) : (
+        ""
+      )}
+      <Button onClick={createpost} id="createpost">
+        {create ? "Creating Post..." : "Create Post"}
+      </Button>
       {/* <input type="text" placeholder='Description' value={description} onChange={(e)=>setDescription(e.target.value)} /> */}
     </div>
   );

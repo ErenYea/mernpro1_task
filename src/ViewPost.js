@@ -5,6 +5,8 @@ import Pusher from "pusher-js";
 import axios from "./axios";
 import { Navigate } from "react-router-dom";
 import { useStateValue } from "./StateProvider";
+import { CircularProgress } from "@mui/material";
+import { Box } from "@mui/system";
 const ViewPost = () => {
   const [state, dispatch] = useStateValue();
   const [posts, setPosts] = useState([]);
@@ -37,6 +39,12 @@ const ViewPost = () => {
     return <Navigate to="/signup" />;
   } else if (state.type == "Creater") {
     return <Navigate to="/create" />;
+  } else if (posts.length == 0) {
+    return (
+      <Box sx={{ display: "flex" }}>
+        <CircularProgress />
+      </Box>
+    );
   }
   return (
     <div className="viewpost">

@@ -83,3 +83,7 @@ input[type="file"] {
 .preview__image > img{
     width: 300px;
 }
+.MuiBox-root{
+    display: flex;
+    justify-content: center;
+}
