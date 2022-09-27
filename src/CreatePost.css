@@ -76,3 +76,10 @@ input[type="file"] {
     font-weight: 500;
     margin-left: 5px;
 }
+.preview__image{
+    height: 200px;
+    object-fit: contain;
+}
+.preview__image > img{
+    width: 300px;
+}
