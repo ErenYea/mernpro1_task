@@ -12,7 +12,12 @@ import {
 } from "react-router-dom";
 
 function App() {
-  // const [state, dispatch] = useStateValue();
+  const [state, dispatch] = useStateValue();
+  const logout = () => {
+    dispatch({
+      type: "REMOVE_USER",
+    });
+  };
   // console.log(state);
   return (
     <div className="app">
@@ -25,8 +30,7 @@ function App() {
             <Route path="/posts" element={<ViewPost />} />
           </Routes>
         </Router>
-        {/* <CreatePost /> */}
-        {/* <ViewPost /> */}
+        {state.user == null ? "" : <button onClick={logout}>LogOut</button>}
       </div>
 
       {/* Hello */}
