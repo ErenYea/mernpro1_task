@@ -8,9 +8,11 @@ import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import axios from "./axios";
 import { useStateValue } from "./StateProvider";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [state, dispatch] = useStateValue();
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [value, setValue] = useState("");
@@ -32,6 +34,12 @@ const Signup = () => {
             type: value,
           },
         });
+        if (value == "Viewer") {
+          navigate("/posts");
+        } else {
+          navigate("/create");
+          // window.location = "/create";
+        }
       })
       .catch((err) => alert(err.message));
     // co

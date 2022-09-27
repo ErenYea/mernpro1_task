@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import "./CreatePost.css";
 import axios from "./axios";
 import { useStateValue } from "./StateProvider";
+import { Navigate } from "react-router-dom";
 
 const CreatePost = () => {
   const [state, dispatch] = useStateValue();
@@ -32,15 +33,21 @@ const CreatePost = () => {
     // {
     // headers: {
     //   "Content-Type": "multipart/form-data",
-    // },
-    axios
-      .post("/createpost", formData)
-      .then((response) => console.log(response))
-      .catch((error) => console.log(error));
+    // // },
+    // axios
+    //   .post("/createpost", formData)
+    //   .then((response) => console.log(response))
+    //   .catch((error) => console.log(error));
+    console.log(formData);
     setDescription("");
     setFile("");
     setTitle("");
   };
+  if (state.user == null) {
+    return <Navigate to="/signup" />;
+  } else if (state.user == "Viewer") {
+    return <Navigate to="/posts" />;
+  }
   return (
     <div className="createPost">
       <div className="createPost__title">
@@ -67,9 +74,7 @@ const CreatePost = () => {
         />
       </div>
 
-      <Button type="submit" onClick={createpost}>
-        Create Post
-      </Button>
+      <Button onClick={createpost}>Create Post</Button>
       {/* <input type="text" placeholder='Description' value={description} onChange={(e)=>setDescription(e.target.value)} /> */}
     </div>
   );
