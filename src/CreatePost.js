@@ -34,10 +34,10 @@ const CreatePost = () => {
     // headers: {
     //   "Content-Type": "multipart/form-data",
     // // },
-    // axios
-    //   .post("/createpost", formData)
-    //   .then((response) => console.log(response))
-    //   .catch((error) => console.log(error));
+    axios
+      .post("/createpost", formData)
+      .then((response) => console.log(response))
+      .catch((error) => console.log(error));
     console.log(formData);
     setDescription("");
     setFile("");
