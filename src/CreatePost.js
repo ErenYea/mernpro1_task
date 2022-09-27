@@ -81,6 +81,13 @@ const CreatePost = () => {
           <strong>FileName: </strong>
           <p>{file != "" ? file[0].name : "No file selected"}</p>
         </div>
+        <div className="preview__image">
+          {file != "" ? (
+            <img src={URL.createObjectURL(file[0])} alt="../" />
+          ) : (
+            ""
+          )}
+        </div>
       </div>
 
       <Button onClick={createpost}>Create Post</Button>
