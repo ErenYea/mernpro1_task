@@ -48,6 +48,7 @@ const CreatePost = () => {
   } else if (state.user == "Viewer") {
     return <Navigate to="/posts" />;
   }
+  console.log("file", file);
   return (
     <div className="createPost">
       <div className="createPost__title">
@@ -66,12 +67,20 @@ const CreatePost = () => {
           onChange={(e) => setDescription(e.target.value)}
         />
       </div>
-      <div>
-        <input
-          type="file"
-          accept="images/*"
-          onChange={(e) => setFile(e.target.files)}
-        />
+      <div className="createPost__file">
+        <label class="custom-file-upload">
+          <input
+            type="file"
+            accept="images/*"
+            onChange={(e) => setFile(e.target.files)}
+          />
+          File Upload
+        </label>
+
+        <div className="filename">
+          <strong>FileName: </strong>
+          <p>{file != "" ? file[0].name : "No file selected"}</p>
+        </div>
       </div>
 
       <Button onClick={createpost}>Create Post</Button>

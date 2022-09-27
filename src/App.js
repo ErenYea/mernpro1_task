@@ -10,6 +10,7 @@ import {
   Link,
   Navigate,
 } from "react-router-dom";
+import { Button } from "@mui/material";
 
 function App() {
   const [state, dispatch] = useStateValue();
@@ -18,7 +19,7 @@ function App() {
       type: "REMOVE_USER",
     });
   };
-  // console.log(state);
+  console.log(state);
   return (
     <div className="app">
       <div className="app__body">
@@ -30,7 +31,7 @@ function App() {
             <Route path="/posts" element={<ViewPost />} />
           </Routes>
         </Router>
-        {state.user == null ? "" : <button onClick={logout}>LogOut</button>}
+        {state.user == null ? "" : <Button onClick={logout}>LogOut</Button>}
       </div>
 
       {/* Hello */}

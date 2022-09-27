@@ -14,3 +14,13 @@
   display: grid;
   place-items: center;
 }
+.app__body > button{
+  width: 100px;
+  height: 32px;
+  background-color: blue;
+  color: white;
+}
+.app__body > button:hover{
+  color: gray;
+  background-color:lightskyblue
+}

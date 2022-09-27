@@ -31,3 +31,48 @@
 .createPost__description > h2{
     margin-right: 10px;
 }
+
+.createPost > button{
+    background-color: goldenrod;
+    width:200px;
+    align-self: center;
+    margin-top: 10px;
+    color: gray
+}
+
+
+.createPost__file{
+    margin-left: 10px;
+    border: none;
+}
+/* .createPost__file > input{
+    border: none;
+    background-color:gold;
+} */
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: aqua;
+    border-radius: 5px;
+}
+.custom-file-upload:hover{
+    background-color:lightskyblue;
+    color:gray;
+
+}
+.filename{
+    display: flex;
+    
+}
+.filename > p{
+    margin-left: 10px;
+}
+.filename > strong{
+    font-weight: 500;
+    margin-left: 5px;
+}

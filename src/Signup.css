@@ -32,3 +32,21 @@
     align-items: baseline;
     margin-bottom: 10px;
 }
+
+.signup > form > button {
+    background-color: blue;
+    color: white; 
+}
+.signup > form > button:hover{
+    background-color: lightskyblue;
+}
+/* .signup > h2{
+    position: relative;
+    border: 1px solid;
+    place-self:initial
+}
+
+.signup{
+    display: flex;
+    
+} */

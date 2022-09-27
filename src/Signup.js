@@ -30,11 +30,11 @@ const Signup = () => {
         dispatch({
           type: "SET_USER",
           payload: {
-            user: email,
-            type: value,
+            user: response.data.email,
+            type: response.data.type,
           },
         });
-        if (value == "Viewer") {
+        if (response.data.type == "Viewer") {
           navigate("/posts");
         } else {
           navigate("/create");
