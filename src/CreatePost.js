@@ -1,5 +1,5 @@
 import { Button, CircularProgress } from "@mui/material";
-import React, { useState } from "react";
+import { useState } from "react";
 import "./CreatePost.css";
 import axios from "./axios";
 import { useStateValue } from "./StateProvider";
@@ -22,7 +22,7 @@ const CreatePost = () => {
     }
     // send the data to the server for creating post
     const formData = new FormData();
-    formData.append("file", file[0]);
+    formData.append("image", file[0]);
     formData.append("title", title);
     formData.append("description", description);
     formData.append("user", state.user);
